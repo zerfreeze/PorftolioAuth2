@@ -6,16 +6,21 @@ let passport = require('passport');
 //create the userModel instance
 let UserModel = require('../model/user');
 let User = UserModel.User; //alias
+/*
 module.exports.displayHomePage = (req,res,next)=>{
     res.render('index',{title:'Home', displayName:req.user?req.user.displayName:''});
+}
+*/
+module.exports.displayHomePage = (req,res,next)=>{
+    res.render('home',{title:'Home', displayName:req.user?req.user.displayName:''});
 }
 
 module.exports.displayAboutPage = (req,res,next)=>{
     res.render('about',{title:'About', displayName:req.user?req.user.displayName:''});
 }
 
-module.exports.displayProductsPage = (req,res,next)=>{
-    res.render('Products',{title:'Products',displayName:req.user?req.user.displayName:''});
+module.exports.displayProjectsPage = (req,res,next)=>{
+    res.render('Projects',{title:'Projects',displayName:req.user?req.user.displayName:''});
 }
 module.exports.displayServicesPage = (req,res,next)=>{
     res.render('Services',{title:'Services',displayName:req.user?req.user.displayName:''});
@@ -61,7 +66,7 @@ module.exports.processLoginPage = (req,res,next)=>{
             {
                 return next(err);
             }
-            return res.redirect('/bookList');
+            return res.redirect('/businessContactList');
         });
         
     })(req,res,next);

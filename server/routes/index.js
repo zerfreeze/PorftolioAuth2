@@ -10,7 +10,7 @@ router.get('/home', indexController.displayHomePage);
 /* GET About Us page. */
 router.get('/about', indexController.displayAboutPage);
 /* GET products page. */
-router.get('/products', indexController.displayProductsPage);
+router.get('/projects', indexController.displayProjectsPage);
 /* GET Services page. */
 router.get('/services', indexController.displayServicesPage);
 /* GET Contact Us page. */
