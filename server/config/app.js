@@ -24,6 +24,7 @@ mongoDB.once('open',()=>{
 let indexRouter = require('../routes/index');
 let usersRouter = require('../routes/users');
 let booksRouter = require('../routes/book');
+let businessContactsRouter = require('../routes/businessContacts');
 
 let app = express();
 
@@ -43,11 +44,8 @@ app.use(express.static(path.join(__dirname, '../../node_modules')));
 app.use(session({
   secret:'SomeSecret',
   saveUninitialized:false,
-<<<<<<< HEAD
-  resave:false
-=======
+  //resave:false
   reSave:false
->>>>>>> 6fe48f3c64e315231db0268ff2db189540e2d78e
 }));
 
 //initialize flash
@@ -67,6 +65,7 @@ passport.deserializeUser(User.deserializeUser());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/bookList',booksRouter);
+app.use('/businessContactList',businessContactsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

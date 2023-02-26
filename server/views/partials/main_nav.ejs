@@ -39,6 +39,13 @@
               <a class="nav-link active" aria-current="page" href="/bookList"><i class="fas fa-book"></i>Books</a>
               <%}%>
             </li>
+          
+          <% if (title =="BusinessContacts"){%>
+              <li class="nav-item">
+          <%} else {%>
+                <a class="nav-link active" aria-current="page" href="/businessContactList"><i class="fas fa-book"></i>BusinessContacts</a>
+          <%}%>
+              </li>
 
           <% if (title =="contact"){%>
           <li class="nav-item">
@@ -46,7 +53,12 @@
             <a class="nav-link active" aria-current="page" href="/contact"><i class="fas fa-mobile-alt"></i>Contact</a>
             <%}%>
           </li>
-          
+          <%if(typeof displayName =='string' && displayName){%>
+            <li class="navbar-text"><i class="fas fa-lg fa-user"></i>Welcome, <%=displayName%></li>
+            <li class="nav-item"><a href="/logout" class="nav-link"><i class="fas fa-lg fa-sign-out-alt"></i>logout</a></li>
+            <%}else{%>
+              <li class ="nav-item"><a href="/login" class="nav-link"><i class="fas fa-lg fa-sign-in-alt"></i>Login</a>a></li>
+              <%}%>
       </div>
     </div>
   </nav>
