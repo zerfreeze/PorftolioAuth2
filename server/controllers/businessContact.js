@@ -3,19 +3,24 @@ let router = express.Router();
 let mongoose = require('mongoose');
 let BusinessContact = require('../model/businessContacts.js');
 module.exports.displayBusinessContactList = (req,res,next)=>{
-    BusinessContact.find((err,businessContactList)=>{
-        if(err)
-        {
-        return console.error(err);
-        }
-        else
-        {
-         
-         res.render('businessContact/list', 
-         {title:'BusinessContacts', BusinessContactList:businessContactList,
-        displayName:req.user ? req.user.displayName:''});
-        }
-    });
+    
+    
+        BusinessContact.find((err,businessContactList)=>{
+            if(err)
+            {
+            return console.error(err);
+            }
+            else
+            {
+             
+             res.render('businessContact/list', 
+             {title:'BusinessContacts', BusinessContactList:businessContactList,
+            displayName:req.user ? req.user.displayName:''});
+            }
+        }).sort({name: 'asc'});
+        
+    
+
 }
 
 module.exports.displayAddPage = (req,res,next)=>{
